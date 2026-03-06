@@ -1,120 +1,147 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Día del Podcast</title>
+<meta charset="UTF-8">
+<title>Día del Podcast</title>
 
-  <!-- Fuente FatFrank -->
-  <link rel="stylesheet" href="https://use.typekit.net/vzc7lay.css">
+<link href="https://use.typekit.net/ymy7tce.css">
 
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      width: 100vw;
-      height: 100vh;
-      background-color: #ffffff;
-      font-family: "fatfrank", sans-serif;
-      font-weight: 400;
-      font-style: normal;
-    }
+<style>
 
-    .contenedor {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-    }
+html, body{
+margin:0;
+padding:0;
+overflow:hidden;
+width:100vw;
+height:100vh;
+font-family:"kit-rounded", sans-serif;
+}
 
-    video#fondoVideo {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: fill;
-      z-index: 0;
-    }
+.contenedor{
+position:relative;
+width:100vw;
+height:100vh;
+}
 
-    .frase {
-      position: absolute;
-      top: 49%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 78%;
-      max-width: 750px;
-      text-align: center;
-      font-size: 75px;
-      line-height: 1.1;
-      font-weight: 400;
-      color: #ffffff;
-      font-family: "fatfrank", sans-serif;
-      opacity: 0;
-      transition: opacity 0.3s ease-in-out;
-      word-wrap: break-word;
-      overflow-wrap: break-word;
-      white-space: normal;
-      text-shadow: 0px 0px 0px rgba(0,0,0,0.8);
-    }
+video#fondoVideo{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:fill;
+z-index:0;
+}
 
-    .mostrar {
-      opacity: 1;
-    }
-  </style>
+/* NOMBRE */
+
+.nombre{
+position:absolute;
+top:40%;
+left:50%;
+transform:translate(-50%, -50%);
+font-size:120px;
+font-weight:800;
+color:#ffffff;
+font-family:"kit-rounded", sans-serif;
+text-transform:uppercase;
+opacity:0;
+transition:opacity 0.3s ease-in-out;
+}
+
+/* MENSAJE */
+
+.mensaje{
+position:absolute;
+top:60%;
+left:50%;
+transform:translate(-50%, -50%);
+
+width:1400px;
+max-width:1400px;
+
+text-align:center;
+font-size:150px;
+font-weight:800;
+color:#ffe4f3;
+
+font-family:"kit-rounded", sans-serif;
+
+white-space:normal;
+word-wrap:break-word;
+overflow-wrap:break-word;
+
+line-height:1.05;
+text-transform:uppercase;
+
+opacity:0;
+transition:opacity 0.3s ease-in-out;
+}
+
+.mostrar{
+opacity:1;
+}
+
+</style>
 </head>
+
 <body>
-  <div class="contenedor">
-    <!-- Fondo en video -->
-    <video id="fondoVideo" autoplay muted loop>
-      <source src="fondo.mp4" type="video/mp4">
-      Tu navegador no soporta videos en HTML5.
-    </video>
 
-    <!-- Texto dinámico -->
-    <div id="frase" class="frase">Aquí va el podcast recomendado</div>
-  </div>
+<div class="contenedor">
 
-  <script>
-    const url = "https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLiCnxM7-64LIN3PUqy9WFVmvtdQVTSD0iINZC_ay0mJ1_9kavcr25SLyu4xZFgRzMehPbBDwczMPIjgw_cBx991A9vlxthDf2fCJbbc-ImUcaGhURpgLTccf2OIBc0CfNO7vsBZOOArVr2CJ6NK6qa7oglzn9qT_X1mN48USliv7JP-PMXwfXqO3tq2jdsKuHVWOWKzKk_S850zAeTueXV7GsF9ombN3cvzs8EG704nLkl81n2FetuO37kHk_lydLTejwlwpi109vSCKCSHvJq8GA1rbgR_3uDng84S&lib=Mo-xvKz58AIfr778Oor40O6eEHa1C_Htb";
+<video autoplay muted loop playsinline id="fondoVideo">
+<source src="fondo.mp4" type="video/mp4">
+</video>
 
-    let frases = [];
-    let index = 0;
+<div class="nombre" id="nombre"></div>
+<div class="mensaje" id="mensaje"></div>
 
-    async function fetchData() {
-      try {
-        const res = await fetch(url);
-        const data = await res.json();
+</div>
 
-        // 👇 Ajusta según cómo viene tu JSON
-        // Si es un array plano, basta con esto:
-        frases = data;
+<script>
 
-        // Si viene como { "data": [...] }, usa:
-        // frases = data.data;
+const url = "https://script.googleusercontent.com/macros/echo?user_content_key=AY5xjrSDIzN7xnrtXit0zWZy8nrW_OQ0Y6FQKNTPEaY0wbzZWUOCnIzflhJ03E_FyJQUw903kkX11omc4b2u2OreK_FcA5ozZK4xkTolSvusmyFDgpPFD2Ylqq9wmIqU6QA9x9E9_tyybcfkBmu0kFc8wzBBizKmnrQ9dtXfRigPGXx2-5xslxfCXSFS_qPQS3wFvCXmaDGDV63e8p0ciMe3fTZsPNc8m9UzPlHiAIE3ueVnmEOOWSDpO2wZpZEERVfnNZPPs955RJvuZDjF5mkDmEOPzHN2T_CtPDvqBchE&lib=M7mryI_rJU1CO8-B158svx6eEHa1C_Htb";
 
-        if (frases.length > 0) {
-          index = Math.floor(Math.random() * frases.length);
-          showFrase();
-          setInterval(showFrase, 5000);
-        } else {
-          document.getElementById("frase").innerText = "No hay podcasts aprobados";
-        }
-      } catch (err) {
-        document.getElementById("frase").innerText = "Error al cargar podcasts";
-        console.error(err);
-      }
-    }
+fetch(url)
+.then(res => res.json())
+.then(data => {
 
-    function showFrase() {
-      const fraseDiv = document.getElementById("frase");
-      fraseDiv.innerText = frases[index];
-      fraseDiv.classList.add("mostrar");
+const mensajes = data;
 
-      index = (index + 1) % frases.length;
-    }
+const nombreEl = document.getElementById("nombre");
+const mensajeEl = document.getElementById("mensaje");
 
-    fetchData();
-  </script>
+function mostrarMensaje(){
+
+const aleatorio = mensajes[Math.floor(Math.random() * mensajes.length)];
+
+nombreEl.innerText = aleatorio.nombre;
+mensajeEl.innerText = aleatorio.mensaje;
+
+nombreEl.classList.add("mostrar");
+mensajeEl.classList.add("mostrar");
+
+}
+
+mostrarMensaje();
+
+setInterval(()=>{
+
+nombreEl.classList.remove("mostrar");
+mensajeEl.classList.remove("mostrar");
+
+setTimeout(mostrarMensaje,500);
+
+},5000);
+
+})
+.catch(err=>{
+console.error("Error cargando datos:",err);
+});
+
+</script>
+
 </body>
 </html>
+
 
