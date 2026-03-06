@@ -3,11 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Día del Podcast</title>
-
-<link href="https://use.typekit.net/ymy7tce.css">
-
+<link rel="stylesheet" href="https://use.typekit.net/ymy7tce.css">
 <style>
-
 html, body{
 margin:0;
 padding:0;
@@ -15,6 +12,7 @@ overflow:hidden;
 width:100vw;
 height:100vh;
 font-family:"kit-rounded", sans-serif;
+font-style: normal;
 }
 
 .contenedor{
@@ -33,8 +31,6 @@ object-fit:fill;
 z-index:0;
 }
 
-/* NOMBRE */
-
 .nombre{
 position:absolute;
 top:40%;
@@ -43,14 +39,12 @@ transform:translate(-50%, -50%);
 font-size:120px;
 font-weight:800;
 color:#ffe4f3;
-font-family:"kit-rounded", sans-serif;
-text-transform:uppercase;
 opacity:0;
 transition:opacity 0.3s ease-in-out;
-
+font-family:"kit-rounded", sans-serif;
+font-style: normal;
+text-transform:uppercase; 
 }
-
-/* MENSAJE */
 
 .mensaje{
 position:absolute;
@@ -73,10 +67,11 @@ word-wrap:break-word;
 overflow-wrap:break-word;
 
 line-height:1.2;
+  
 text-transform:uppercase;
 
 opacity:0;
-transition:opacity 0.1s ease-in-out;
+transition:opacity 0.3s ease-in-out;
 }
 
 .mostrar{
@@ -85,13 +80,13 @@ opacity:1;
 
 </style>
 </head>
-
 <body>
 
 <div class="contenedor">
 
 <video autoplay muted loop playsinline id="fondoVideo">
 <source src="fondo.mp4" type="video/mp4">
+   Cargando.
 </video>
 
 <div class="nombre" id="nombre"></div>
@@ -141,9 +136,9 @@ console.error("Error cargando datos:",err);
 });
 
 </script>
-
 </body>
 </html>
+
 
 
 
